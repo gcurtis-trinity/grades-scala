@@ -1,5 +1,5 @@
 
 
-class CompletedCourse extends Credit (val grade:String) {
+class final CompletedCourse extends Credit (val grade:String) {
   
 }

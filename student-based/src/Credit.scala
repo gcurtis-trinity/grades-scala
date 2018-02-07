@@ -6,5 +6,5 @@ abstract class Credit (
     val sem:Int,
     ???)
 {
-  ???
+  def gpaValue:Double
 }
