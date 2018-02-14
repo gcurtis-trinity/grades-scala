@@ -9,7 +9,7 @@ case class GradeBoundary with scala.math.Ordered(
     this.lowerLimit.compare(other.lowerLimit)
   }
   
-  def compart(avg:Double):Int {
+  def compare(avg:Double):Int {
     this.lowerLimit.compare(avg)
   }
 }
