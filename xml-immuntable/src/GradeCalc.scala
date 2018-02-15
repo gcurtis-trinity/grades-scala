@@ -1,0 +1,5 @@
+
+
+class GradeCalc extends App {
+  
+}

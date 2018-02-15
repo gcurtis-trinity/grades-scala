@@ -1,9 +1,9 @@
 
 
-case class GradeBoundary with scala.math.Ordered(
+case class GradeBoundary(
     lowerLimit:Double,
     letterGrade:String,
-    gpa:Double)
+    gpa:Double) with scala.math.Ordered
 {
   def compare(other:GradeBoundry):Int {
     this.lowerLimit.compare(other.lowerLimit)

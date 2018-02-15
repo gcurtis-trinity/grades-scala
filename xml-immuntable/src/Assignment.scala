@@ -32,7 +32,7 @@ class Assignment (
   /*function to return a new Assignment list based on the type of the argument updated
    */
   def update [A](a:A):Assignment = {
-    a.match {
+    a match {
       case _:String => new Assignment(a, weight, grades, single, dropCount)
       case _:Double => new Assignmnet(name, a, grades, single, dropCount)
       case _:List[Double] => new Assignment(name, wieght, a, single, dropCount)
