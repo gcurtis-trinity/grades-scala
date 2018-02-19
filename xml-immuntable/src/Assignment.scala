@@ -38,6 +38,7 @@ class Assignment (
       case _:List[Double] => new Assignment(name, wieght, a, single, dropCount)
       case _:Boolean => new Assignment(name, weight, grades, a, dropCount)
       case _:Int => new Assignment(name, weight, grades, single, a)
+      case _ => this
     }
   }
   

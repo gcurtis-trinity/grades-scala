@@ -8,5 +8,5 @@ class CompletedCourse with Credit (
     val letterGrade:String,
     val gradePointAverage:Double)
 {
-  
+  override def print():String = s"  $semester, $hours, $letterGrade\t$name\ncomplete\n"
 }

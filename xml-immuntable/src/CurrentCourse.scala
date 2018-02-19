@@ -4,14 +4,14 @@ class CurrentCourse with Credit (
     val name:String,
     val hours:Int,
     val semester:Int,
-    private val asgmts:List[Assignment]
+    val asgmts:List[Assignment]
     protected val boundaries:List[GradeBoundary]
 {
   val average = (for (a <- asgmts) yield a.avg*a.weight).sum/(for (a <- asgmts) yield a.weight).sum
   val letterGrade = boundaries.filter(b => b.lowerLimit < average).max.letterGrade
   val GradePointAverage = boundaries.filt(b => b.lowerLimit < average).max.gpa
   
-  /*function that returns the lowest grade to be added that will result in a certian
+  /*function that returns the lowest grade to be added that will result in a certain
    *letter grade
    *  @param wanted: the letter grade to be achieved
    *  @param category: which assignment to add the grade to
@@ -27,8 +27,11 @@ class CurrentCourse with Credit (
   
   def - (minus:Assignment):CurrentCourse = new CurrentCourse(name, hours, semester, asmts diff List(minus), boundaries)
   
-  def update [A](old:Assignment, a:A):CurrentCourse = {
-    new CurrentCourse(name, hours, semester, old.update(a:A)::asgmts diff List(old), boundaries)
+  def update [A](a:A, old:Assignment):CurrentCourse = {
+    if asgmts.contains(old) {
+      new CurrentCourse(name, hours, semester, old.update(a:A)::asgmts diff List(old), boundaries)
+    }
+    else this
   }
   
   def toCompleted():CompletedCourse = new CompletedCourse(name, hours, semseter, average, letterGrade, gradePointAverage)
